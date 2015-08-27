@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout>
+    <keithm_productlinks_inject_custom_one_tab>
+        <reference name="product_tabs">
+            <block type="keithm_productlinks/adminhtml_catalog_product_edit_customonetab" name="customone_tab"/>
+            <action method="addTab">
+                <name>Custom One</name>
+                <block>customone_tab</block>
+            </action>
+        </reference>
+    </keithm_productlinks_inject_custom_one_tab>
+
+    <keithm_productlinks_inject_is_custom_two_tab>
+        <reference name="product_tabs">
+            <block type="keithm_productlinks/adminhtml_catalog_product_edit_customtwo" name="customtwo_tab"/>
+            <action method="addTab">
+                <name>Custom Two</name>
+                <block>customtwo_tab</block>
+            </action>
+        </reference>
+    </keithm_productlinks_inject_is_custom_two_tab>
+
+
+    <adminhtml_catalog_product_edit>
+        <update handle="keithm_productlinks_inject_custom_one_tab"/>
+        <update handle="keithm_productlinks_inject_is_custom_two_tab"/>
+    </adminhtml_catalog_product_edit>
+
+    <adminhtml_catalog_product_new>
+        <update handle="keithm_productlinks_inject_custom_one_tab"/>
+        <update handle="keithm_productlinks_inject_is_custom_two_tab"/>
+    </adminhtml_catalog_product_new>
+
+
+    <adminhtml_catalog_product_customone>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="keithm_productlinks/adminhtml_catalog_product_edit_tab_customone" name="catalog.product.edit.tab.customone"/>
+            <block type="adminhtml/widget_grid_serializer" name="customone_grid_serializer">
+                <reference name="customone_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>catalog.product.edit.tab.customone</grid_block_name>
+                        <data_callback>getSelectedCustomOneProducts</data_callback>
+                        <hidden_input_name>links[customone]</hidden_input_name>
+                        <reload_param_name>products_customone</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_catalog_product_customone>
+
+    <adminhtml_catalog_product_customtwo>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="keithm_productlinks/adminhtml_catalog_product_edit_tab_customtwo" name="catalog.product.edit.tab.customtwo"/>
+            <block type="adminhtml/widget_grid_serializer" name="customtwo_grid_serializer">
+                <reference name="customtwo_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>catalog.product.edit.tab.customtwo</grid_block_name>
+                        <data_callback>getSelectedCustomTwoProducts</data_callback>
+                        <hidden_input_name>links[customtwo]</hidden_input_name>
+                        <reload_param_name>customtwo</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_catalog_product_customtwo>
+
+    <adminhtml_catalog_product_customonegrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="keithm_productlinks/adminhtml_catalog_product_edit_tab_customone" name="catalog.product.edit.tab.customone"/>
+        </block>
+    </adminhtml_catalog_product_customonegrid>
+
+    <adminhtml_catalog_product_customtwogrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="keithm_productlinks/adminhtml_catalog_product_edit_tab_customtwo" name="catalog.product.edit.tab.customtwo"/>
+        </block>
+    </adminhtml_catalog_product_customtwogrid>
+
+</layout>

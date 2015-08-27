@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <api>
+        <resources>
+            <keithm_productlinks_catalog_product_link translate="title" module="keithm_productlinks">
+                <title>Custom Product Links API</title>
+                <model>keithm_productlinks/catalog_product_link_api</model>
+            </keithm_productlinks_catalog_product_link>
+            <keith_productlinks_catalog_product_link_api translate="title" module="keithm_productlinks">
+                <title>Custom Product Links API V2</title>
+                <model>keithm_productlinks_productlinks/catalog_product_link_api_v2</model>
+            </keith_productlinks_catalog_product_link_api>
+        </resources>
+    </api>
+</config>
