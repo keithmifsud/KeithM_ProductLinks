@@ -3,7 +3,7 @@
 <layout>
     <keithm_productlinks_inject_custom_one_tab>
         <reference name="product_tabs">
-            <block type="keithm_productlinks/adminhtml_catalog_product_edit_customonetab" name="customone_tab"/>
+            <block type="keithm_productlinks/adminhtml_catalog_product_edit_customOneTab" name="customone_tab"/>
             <action method="addTab">
                 <name>Custom One</name>
                 <block>customone_tab</block>
@@ -13,7 +13,7 @@
 
     <keithm_productlinks_inject_is_custom_two_tab>
         <reference name="product_tabs">
-            <block type="keithm_productlinks/adminhtml_catalog_product_edit_customtwo" name="customtwo_tab"/>
+            <block type="keithm_productlinks/adminhtml_catalog_product_edit_customTwoTab" name="customtwo_tab"/>
             <action method="addTab">
                 <name>Custom Two</name>
                 <block>customtwo_tab</block>
